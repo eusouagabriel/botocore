@@ -199,6 +199,7 @@ class Endpoint:
         success_response, exception = self._get_response(
             request, operation_model, context
         )
+        success_response[-1]["OriginalRequest"] = request
         while self._needs_retry(
             attempts,
             operation_model,
